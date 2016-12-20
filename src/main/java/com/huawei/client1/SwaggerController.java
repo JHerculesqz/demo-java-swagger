@@ -3,6 +3,7 @@ package com.huawei.client1;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,7 +25,7 @@ public class SwaggerController {
 
 	@ApiOperation(value = "say hello", notes = "notes....")
 	@ApiImplicitParam(name = "oReqVo", value = "ReqVo数据结构", required = true, dataType = "ReqVo")
-	@RequestMapping("/hello")
+	@RequestMapping(value = "/hello", method = RequestMethod.POST)
 	@ResponseBody
 	public String hello(@RequestBody ReqVo oReqVo) {
 		return this.swaggerService.hello(oReqVo);
